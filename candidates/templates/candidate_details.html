@@ -1,0 +1,34 @@
+{% extends "shared/base.html" %} {% block content %}
+
+<div class="container mx-2 my-2">
+    <div class="row">
+        <form action="{% url 'list_candidates' %}" method="get">
+            <button class="btn btn-primary float-end" type="submit">
+                Show Candidates
+            </button>
+        </form>
+    </div>
+
+    <div class="m-5">
+        <h3 class="mb-4">Candidate Information</h3>
+        <strong class="fs-6">First Name:</strong> {{profile.first_name}} <br>
+        <strong class="fs-6">Last Name:</strong> {{profile.last_name}} <br>
+        <strong class="fs-6">Email:</strong> {{profile.email}} <br>
+        <strong class="fs-6">Phone Number:</strong> {{profile.phone_number}} <br>
+        <strong class="fs-6">Address:</strong> {{profile.address}} <br>
+        <strong class="fs-6">Birth Date:</strong> {{profile.date_of_birth}} <br>
+        <strong class="fs-6">Gender:</strong> {{profile.gender}} <br>
+        <strong class="fs-6">Resume:</strong>
+        <a href="{% url 'download_resume' candidate_id=profile.id %}" class="text-decoration-none">
+            Download Resume
+        </a>
+        <br>
+        <strong class="fs-6">Linkedin Profile:</strong> {{profile.linkedin_profile}} <br>
+        <strong class="fs-6">Current Job Title:</strong> {{profile.current_job_title}} <br>
+        <strong class="fs-6">Current Company:</strong> {{profile.current_company}} <br>
+        <strong class="fs-6">Years of Experience:</strong> {{profile.years_of_experience}} <br>
+        <strong class="fs-6">Comments:</strong> ---
+    </div>
+</div>
+
+{% endblock %}

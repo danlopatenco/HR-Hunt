@@ -1,0 +1,120 @@
+{% extends "shared/base.html" %}
+{% block content %}
+{% load widget_tweaks %}
+
+<div class="container-fluid mx-2 my-2">
+    <div class='row'>
+        <form action="{% url 'list_candidates' %}" method="get">
+            <button class="btn btn-primary float-end" type="submit">Show candidates</button>
+        </form>
+    </div>
+
+
+    <div class="row mx-4 my-4">
+
+        <div class="col-sm-6 offset-sm-3">
+        <form method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">First name <span class='text-danger'>*</span></span>
+                </div>
+                {% render_field form.first_name class+='form-control' %}
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Last name <span class='text-danger'>*</span></span>
+                </div>
+                {% render_field form.last_name class+='form-control' %}
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Email</span>
+                </div>
+                {% render_field form.email class+='form-control' %}
+              </div>
+
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Phone number</span>
+                </div>
+                {% render_field form.phone_number class+='form-control'  type='number' %}
+              </div>
+
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Address</span>
+                </div>
+                {% render_field form.address class+='form-control' %}
+              </div>
+
+              {% comment %} <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Date of birth</span>
+                </div>
+                {% render_field form.date_of_birth class+='form-control' %}
+              </div> {% endcomment %}
+
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Gender <span class='text-danger'>*</span></span>
+                </div>
+                {% render_field form.gender class+='form-control' %}
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1" >Resume <span class='text-danger'>*</span></span>
+                </div>
+                {% render_field form.resume class+='form-control' %}
+              </div>
+
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Linkedin profile</span>
+                </div>
+                {% render_field form.linkedin_profile class+='form-control' %}
+              </div>
+
+
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Current job title</span>
+                </div>
+                {% render_field form.current_job_title class+='form-control' %}
+              </div>
+
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Current company</span>
+                </div>
+                {% render_field form.current_company class+='form-control' %}
+              </div>
+              
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Years of experience</span>
+                </div>
+                {% render_field form.years_of_experience class+='form-control' %}
+              </div>
+              
+            
+              <button type="submit" class="btn btn-success float-end">Submit</button>
+        </form>
+    </div>
+    </div>
+        
+      </div>
+
+
+</div>
+
+{% endblock %}
