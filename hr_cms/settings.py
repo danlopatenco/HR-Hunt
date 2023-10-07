@@ -19,6 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'taggit',
+    'django_extensions',
     'core',
     'candidates'
 ]
@@ -104,3 +106,5 @@ LOGIN_REDIRECT_URL = '/home/'
 LOGIN_URL = '/login/'
 
 MEDIA_ROOT = BASE_DIR / 'media'
+
+TAGGIT_CASE_INSENSITIVE = True

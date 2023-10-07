@@ -105,6 +105,18 @@
                 </div>
                 {% render_field form.years_of_experience class+='form-control' %}
               </div>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="position_fit">Candidate's Fit for a Position</label>
+                </div>
+                <select class="form-select" id="position_fit" name="position_fit">
+                    <option selected disabled>Select a job position</option>
+                    {% for position in positions %}
+                        <option value="{{ position.pk }}">{{ position.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+              
               
             
               <button type="submit" class="btn btn-success float-end">Submit</button>

@@ -24,8 +24,9 @@ def list_candidates(request):
 def new_candidate(request):
     context = {
         'link_active': 'list_candidates',
-        'form': CandidateForm
+        'form': CandidateForm,
     }
+
     if request.method == 'POST':
         form = CandidateForm(request.POST, request.FILES)
         if form.is_valid():
@@ -42,10 +43,10 @@ def new_candidate(request):
 def profile_details(request, id):
 
     candidate_object = Candidate.objects.get(pk=id)
-    print('CANDIDATE', candidate_object.id)
     context = {
         'link_active': 'list_candidates',
-        'profile': candidate_object
+        'profile': candidate_object,
+        "positions_fit": [tag.name for tag in candidate_object.position_fit.all()]
     }
 
     return render(request, 'candidate_details.html', context)
