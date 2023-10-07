@@ -59,3 +59,16 @@ def download_resume(request, candidate_id):
     response = FileResponse(open(resume_file, 'rb'))
     response['Content-Disposition'] = f'attachment; filename={candidate.resume.name}'
     return response
+
+
+@login_required
+def delete_candidate(request, id):
+    candidate = get_object_or_404(Candidate, id=id)
+    candidate.delete()
+    candidates = Candidate.objects.all()
+
+    context = {
+        'link_active': 'list_candidates',
+        'candidates': candidates
+    }
+    return render(request, 'list.html', context)

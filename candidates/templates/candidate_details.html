@@ -27,11 +27,16 @@
         <strong class="fs-6">Current Job Title:</strong> {{profile.current_job_title}} <br>
         <strong class="fs-6">Current Company:</strong> {{profile.current_company}} <br>
         <strong class="fs-6">Years of Experience:</strong> {{profile.years_of_experience}} <br>
-        <strong class="fs-6">Candidate's Fit for a Position:</strong> 
-        {% for position in positions_fit %}
-        {{ position }}
-        {% endfor %}
-        <br>
+        <strong class="fs-6">Candidate's Fit for a Position:</strong>
+        
+        <div class="my-2 col-sm-3 offset-sm-2">
+            <ul class="list-group">
+                {% for position in positions_fit %}
+                <li class="list-group-item">{{ position }}</li>
+                {% endfor %}
+              </ul>
+        </div>
+
         
         <strong class="fs-6">Comments:</strong> ---
     </div>

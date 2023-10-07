@@ -16,6 +16,7 @@
           <th scope="col">Last Name</th>
           <th scope="col">Job title</th>
           <th scope="col">Current company</th>
+          <th scope='col'>Candidate's Fit for a Position</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -29,11 +30,14 @@
           <td>{{ candidate.current_job_title }}</td>
           <td>{{ candidate.current_company }}</td>
           <td>
+            {{ candidate.position_fit.all|join:', ' }}
+          </td>
+          <td>
             <a class="btn" href="{% url 'profile_details' id=candidate.id %}">
               <i class="bi bi-box-arrow-up-right"></i>
             </a>
 
-            <a class="btn" data-profile-id="{{ candidate.id }}">
+            <a class="btn"  href="{% url 'delete_candidate' id=candidate.id %}" data-profile-id="{{ candidate.id }}">
               <i class="bi bi-trash3"></i>
             </a>
           </td>
