@@ -1,0 +1,1 @@
+This repository contains the codebase for an HR hunting platform built using Django. It includes features for managing candidate profiles, job listings, and facilitating interactions between HR professionals and potential candidates. The platform aims to streamline the hiring process and enhance recruitment efficiency.
